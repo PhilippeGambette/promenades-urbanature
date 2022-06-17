@@ -94,7 +94,8 @@ function startApp(strollData) {
     try {
         L.geoJSON(strollData[0].chemin_geojson, {
             style: function(){
-                return { color: `#${PROMENADE[0].palette.thirdColor}` }
+                // return { color: `#${PROMENADE[0].palette.thirdColor}` }
+                return { color: `var(--color-1-3)` }
             }
         }).addTo(mymap);
     } catch(error) {
@@ -1149,7 +1150,7 @@ const onCardClick = async (e) => {
         height: 35px;
         padding: 10px;
         border-radius: 12px;
-        background-color: #C9C9C9;
+        background-color: none;
     `;
 
     // Lors d'un clic sur le bouton de fermeture

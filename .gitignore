@@ -1,2 +1,6 @@
 .DS_Store
 .editorconfig
+assets/styles/*.scss
+assets/styles/*.css.map
+assets/styles/*.bak.css
+assets/styles/mixins.css
