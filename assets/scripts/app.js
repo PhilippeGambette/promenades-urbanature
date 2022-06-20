@@ -146,13 +146,13 @@ locateBtn.addEventListener('click', event => {
 
 
 
-let url = window.location.href.split('?'),
+let url = window.location.search.split('?'),
     url2,
     params;
 
 if(typeof url[1] == "undefined") {
     window.history.pushState({stroll: 0}, '', "?stroll=lesMarguerites");
-    url2 = window.location.href.split('?');
+    url2 = window.location.search.split('?');
   
     params = {
         "stroll": url2[1].split("=")[1],
@@ -197,6 +197,7 @@ function startStroll(){
     const allData = JSON.parse(localStorage.getItem(STORAGE_DATA_KEY));
     //console.log(allData);
     //console.log(etapeData)
+    let markerArray;
 
     try {
         for (var i = 0; i < etapeData.length; ++i) { isCloseArray.push(false); }
@@ -207,7 +208,7 @@ function startStroll(){
 
     try {
         addStepRoute(etapeDataReverse);
-        addStep(etapeData);
+        markerArray = addStep(etapeData);
         addDocuments(documentData, damesData);
         addDames(damesData);
     } catch(e) {
@@ -243,5 +244,17 @@ function startStroll(){
         onPhotoDocClick(photo.getAttribute('identifiant'));
     }));
 
+    if(window.location.hash != "#" || window.location.hash != "") {
+        console.log(window.location.hash);
+        const hash = window.location.hash.split('#')[1];
+        const target = markerArray.find(({identifiant}) => identifiant == hash);
+        if(target) {
+            document.querySelector(".stroll-intro").click();
+            target['marker'].fireEvent('click');
+        }
+        // remove hash from URL
+        const url = window.location.href.split('#')[0];
+        window.history.pushState({stroll: 0}, '', url);
+    }
 }
 

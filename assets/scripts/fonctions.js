@@ -377,8 +377,11 @@ function addStep(stepArray) {
                 })
             })
         })
+
+        return markerArray;
     } catch(error) {
         console.log(`Une erreur s'est produite lors de la création des étapes de la promenade. ${error}`);
+        return null;
     }
 
 }
