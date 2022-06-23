@@ -13,5 +13,10 @@
     "titre": "Le Paris de Marie de Gournay",
     "visuel": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Marie_de_Gournay.jpg/640px-Marie_de_Gournay.jpg",
     "description": "<i>Le Paris de Marie de Gournay</i>, une promenade sur les traces de la philosophe née en 1565 et morte en 1645."
+  },
+  "lesMargueritesLocal": {
+    "titre": "Promenade parisienne des Marguerite",
+    "visuel": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Marguerite_Durand_1910_-_Restoration.jpg/640px-Marguerite_Durand_1910_-_Restoration.jpg",
+    "description": ""
   }
 }
