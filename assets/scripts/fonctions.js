@@ -51,7 +51,7 @@ function startApp(strollData) {
         bounds = L.latLngBounds(sudOuest, nordEst);
         mymap = new L.Map('mapid', {
             center: bounds.getCenter(),
-            zoom: 13,
+            zoom: 15,
             minZoom: 5,
             zoomControl: false,
             maxBounds: bounds,
@@ -309,7 +309,7 @@ function addStep(stepArray) {
                         GPSMark = L.latLng(coord.target._latlng.lat + .0046, coord.target._latlng.lng);
                     }
         
-                    mymap.flyTo(GPSMark, 16, {
+                    mymap.flyTo(GPSMark, 15, {
                         animate: true,
                         duration: 0.5
                     });
@@ -581,7 +581,7 @@ function onLocationFound(e) {
         mymap.removeLayer(positionUser);
         mymap.removeLayer(accuracy);
     } else if (firstGeoloc == true) {
-        mymap.setView(e.latlng, 16, {
+        mymap.setView(e.latlng, 15, {
             "animate": true,
             "pan": {
               "duration": 10
@@ -645,7 +645,7 @@ function locateUser() {
     if (positionUser) {
         // mymap.removeLayer(positionUser);
         // mymap.removeLayer(accuracy);
-        mymap.locate({maxZoom: 16});
+        mymap.locate({maxZoom: 15});
         mymap.on('locationfound', onLocationFound);
         mymap.on('locationerror', onLocationError);
         console.log("Position utilisateur mise à jour")
@@ -780,7 +780,7 @@ function toggleShutter(element, rank, option) {
             routeSection.classList.remove("hidden");
         }, 1200)
 
-        mymap.flyTo(mymap.getCenter(), 13, {
+        mymap.flyTo(mymap.getCenter(), 15, {
             animate: true,
             duration: 1.5
         });
