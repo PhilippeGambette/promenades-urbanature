@@ -422,8 +422,16 @@ function addDocuments(docArray, damesArray) {
             let a = damesArray.map(e => { 
                 return e.identifiant; 
             }).indexOf(`${doc.id_dame}`);
+            
+            console.log(a);
     
             for (let i = 0; i < shutterChildrens.length; i++) {
+                let portrait = ""
+                let dame = ""
+                if(a>-1){
+                   portrait = damesArray[a].portrait;
+                   dame = damesArray[a].identifiant;
+                }
     
                 if(shutterChildrens[i].getAttribute("document_id_etape") == `${doc.id_etape}`) {
                     let docContent = document.createElement("div");
@@ -433,8 +441,8 @@ function addDocuments(docArray, damesArray) {
                     let cardContent = `
                         <div>
                             <div class="dot"></div>
-                            <div class="photo-doc" identifiant="${damesArray[a].identifiant}">
-                                <img src="${damesArray[a].portrait}" alt="">
+                            <div class="photo-doc" identifiant="${dame}">
+                                <img src="${portrait}" alt="">
                             </div>
                             <div class="doc-content">
                                 <span>${doc.type}</span>
